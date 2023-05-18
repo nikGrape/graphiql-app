@@ -1,3 +1,11 @@
 export const Editor = () => {
-	return <div id='editor'>Editor</div>;
+	return (
+		<div id='editor'>
+			{`{
+          test {
+            id: test,
+          }
+        }`}
+		</div>
+	);
 };

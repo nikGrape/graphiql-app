@@ -8,7 +8,7 @@
 	justify-content: space-around;
 	background-color: rgba(54, 90, 102, 0.082);
 	z-index: 9999;
-	border-radius: 0 0 30px 30px;
+	border-radius: 0 0 10px 10px;
 
 	#links {
 		display: flex;
@@ -22,10 +22,10 @@
 
 	a {
 		margin: 9px;
-		border: 1px dashed rgb(63, 202, 233);
-		border-radius: 19px;
-		padding: 9px;
-		background-color: rgba(12, 108, 130, 0.115);
+		border: 1px dashed rgb(14, 201, 243);
+		border-radius: 12px;
+		padding: 3px 6px 3px 6px;
+		background-color: white;
 		color: black;
 		min-width: 70px;
 		transition: all 100ms ease-in-out;
@@ -79,7 +79,7 @@
 		background-color: inherit;
 		width: 15px;
 		height: 15px;
-		border: 1px dashed rgb(63, 202, 233);
+		border: 1px dashed rgb(14, 201, 243);
 		border-radius: 25%;
 		margin-right: 10px;
 		display: grid;
