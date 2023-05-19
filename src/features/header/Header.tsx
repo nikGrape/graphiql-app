@@ -2,9 +2,12 @@ import { LangSwitch } from './langSwitch/LangSwitch';
 import './_header.scss';
 import { Links } from './Links';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { selectApp } from '../app/appSlice';
 
 export const Header = () => {
 	const [down, setDown] = useState(true);
+	const { showHeader } = useSelector(selectApp);
 
 	const handleNavigation = (e: React.WheelEvent<HTMLElement>) => {
 		const y = e.deltaY;
@@ -23,6 +26,8 @@ export const Header = () => {
 			);
 		};
 	}, []);
+
+	if (!showHeader) return <></>;
 
 	return (
 		<div id={down ? 'header' : 'mini-header'}>

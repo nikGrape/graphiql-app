@@ -32,6 +32,7 @@ export const LoginPage = () => {
 		console.log(data);
 		dispatch(login({ token: 'tmp-token123' }));
 		reset();
+		navigate('/main');
 	};
 
 	return (

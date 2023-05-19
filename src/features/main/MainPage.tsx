@@ -1,4 +1,4 @@
-import { Editor } from './Editor';
+import { CodeEditor } from './Editor';
 import { Headers } from './Headers';
 import { Variables } from './Variables';
 import { Response } from './Response';
@@ -12,7 +12,7 @@ export const MainPage = () => {
 	return (
 		<div id='main'>
 			<div id='editor-set'>
-				<Editor />
+				<CodeEditor />
 				<div id='headers-variables'>
 					<div id='tabs'>
 						<span
@@ -28,7 +28,8 @@ export const MainPage = () => {
 							Variables
 						</span>
 					</div>
-					{tab == 'headers' ? <Headers /> : <Variables />}
+					<Headers display={tab == 'headers'} />
+					<Variables display={tab == 'variables'} />
 				</div>
 			</div>
 			<Response />

@@ -16,6 +16,13 @@ export const Footer = () => {
 						className='author'
 					/>
 				</a>
+				<a rel='stylesheet' href='https://github.com/agusev' target='_blank'>
+					<img
+						src='https://avatars.githubusercontent.com/u/47907411?v=4'
+						alt='github author picture'
+						className='author'
+					/>
+				</a>
 				<a rel='stylesheet' href='https://github.com/conf1dent' target='_blank'>
 					<img
 						src='https://avatars.githubusercontent.com/u/42403544?v=4'

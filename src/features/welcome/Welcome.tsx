@@ -1,14 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import './_welcome.scss';
-import { selectApp, setShowHeader } from '../app/appSlice';
-import { useEffect } from 'react';
+import { selectApp } from '../app/appSlice';
 export const Welcome = () => {
 	const { language } = useSelector(selectApp);
-	const dispatch = useDispatch();
-
-	useEffect(() => {
-		dispatch(setShowHeader(false));
-	}, []);
 
 	return (
 		<div className='full-screen welcome-page'>

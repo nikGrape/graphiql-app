@@ -103,3 +103,27 @@
 		transform: scale(1);
 	}
 }
+
+@media only screen and (max-width: 700px) {
+	#header {
+		font-size: smaller;
+
+		input[type='radio']::before {
+			width: 13px;
+			height: 13px;
+		}
+
+		input[type='radio'] {
+			width: 14px;
+			height: 14px;
+		}
+
+		p {
+			display: none;
+		}
+
+		a {
+			padding: 2px 4px 2px 4px;
+		}
+	}
+}
