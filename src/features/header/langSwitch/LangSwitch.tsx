@@ -13,7 +13,7 @@ export const LangSwitch = () => {
 	};
 
 	return (
-		<div className='sex'>
+		<div className='lang'>
 			<label>English</label>
 			<input
 				name='lang'

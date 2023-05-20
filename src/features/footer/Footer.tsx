@@ -30,17 +30,6 @@ export const Footer = () => {
 						className='author'
 					/>
 				</a>
-				<a
-					rel='stylesheet'
-					href='https://github.com/ANekhaenko'
-					target='_blank'
-				>
-					<img
-						src='https://avatars.githubusercontent.com/u/52015317?v=4'
-						alt='github author picture'
-						className='author'
-					/>
-				</a>
 			</span>
 			<p id='footer-year'>{lang.footer.created[language]}</p>
 			<a href='https://rs.school/react/' target='_blank'>

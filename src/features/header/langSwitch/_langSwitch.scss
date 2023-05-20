@@ -1,4 +1,4 @@
-.sex {
+.lang {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -13,9 +13,9 @@
 	input[type='checkbox'] {
 		appearance: none;
 		background-color: inherit;
-		width: 30px;
-		height: 30px;
-		border: 1px dashed rgb(14, 201, 243);
+		width: 25px;
+		height: 25px;
+		border: 1px dashed gray;
 		border-radius: 25%;
 		margin-right: 10px;
 		display: grid;
@@ -25,8 +25,8 @@
 	input[type='radio']::before,
 	input[type='checkbox']::before {
 		content: '';
-		width: 23px;
-		height: 23px;
+		width: 19px;
+		height: 19px;
 		border-radius: 25%;
 		transform: scale(0);
 		transition: 250ms all ease-in-out;

@@ -10,6 +10,7 @@ import { LoginPage } from './features/login/LoginPage';
 import { SignUpPage } from './features/login/SignUpPage';
 import { Footer } from './features/footer/Footer';
 import { Header } from './features/header/Header';
+import { AboutPage } from './features/about/AboutPage';
 
 function App() {
 	return (
@@ -22,6 +23,7 @@ function App() {
 						<Route path='/main' element={<MainPage />} />
 						<Route path='/login' element={<LoginPage />} />
 						<Route path='/signup' element={<SignUpPage />} />
+						<Route path='/about' element={<AboutPage />} />
 						<Route path='*' element={<PageNotFound />} />
 					</Routes>
 				</HashRouter>

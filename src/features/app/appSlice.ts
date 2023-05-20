@@ -13,7 +13,7 @@ type appStateType = {
 const initialState: appStateType = {
 	theme: 'light',
 	showHeader: true,
-	isAuthenicated: true,
+	isAuthenicated: false,
 	token: null,
 	language: 'en',
 };

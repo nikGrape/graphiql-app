@@ -1,4 +1,6 @@
 import Editor from '@monaco-editor/react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
 import { useState } from 'react';
 
@@ -6,6 +8,8 @@ export const CodeEditor = () => {
 	const code = `{
   test {
     id: id,
+
+    
   }
 }`;
 	const [value, setValue] = useState(code || '');
@@ -14,11 +18,19 @@ export const CodeEditor = () => {
 		setValue(value || '');
 	};
 
+	const run = () => {
+		console.log('run!');
+		return null;
+	};
+
 	return (
 		<div id='editor'>
+			<div className='run' role='button' onClick={run}>
+				<FontAwesomeIcon icon={faPlay} />
+			</div>
 			<Editor
 				height='95%'
-				width='100%'
+				width='88%'
 				className='edit'
 				language={'graphql'}
 				value={value}
@@ -28,6 +40,8 @@ export const CodeEditor = () => {
 					minimap: {
 						enabled: false,
 					},
+					formatOnType: true,
+					formatOnPaste: true,
 					fontSize: 16,
 					scrollbar: {
 						vertical: 'hidden',

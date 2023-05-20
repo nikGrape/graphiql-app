@@ -2,7 +2,8 @@ import { login, selectApp } from '../app/appSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import './_sign.scss';
 
 interface Input {
 	email: string;
@@ -21,12 +22,13 @@ export const LoginPage = () => {
 
 	const { isAuthenicated } = useSelector(selectApp);
 	const navigate = useNavigate();
+	const isAuthRef = useRef<boolean>(isAuthenicated);
 
 	useEffect(() => {
-		if (isAuthenicated) {
+		if (isAuthRef.current) {
 			navigate('/main');
 		}
-	}, [isAuthenicated]);
+	}, [navigate]);
 
 	const onSubmit: SubmitHandler<Input> = (data) => {
 		console.log(data);
@@ -37,9 +39,9 @@ export const LoginPage = () => {
 
 	return (
 		<>
-			<div>LoginPage</div>
+			<h2>Login</h2>
 
-			<form action='' onSubmit={handleSubmit(onSubmit)}>
+			<form action='' onSubmit={handleSubmit(onSubmit)} className='signForm'>
 				<input
 					type='email'
 					placeholder='e-mail'
@@ -52,6 +54,7 @@ export const LoginPage = () => {
 				<input
 					type='password'
 					placeholder='password'
+					autoComplete=''
 					{...register('password', {
 						required: 'Password is Required',
 						minLength: { value: 8, message: 'minimum length is 8' },

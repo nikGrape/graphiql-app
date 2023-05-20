@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import languages from '../../assets/languages.json';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import './_sign.scss';
 
 interface Input {
 	name: string;
@@ -19,33 +20,34 @@ export const SignUpPage = () => {
 		watch,
 		reset,
 		formState: { errors },
-	} = useForm<Input>({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
+	} = useForm<Input>({ mode: 'onSubmit', reValidateMode: 'onChange' });
 
 	const dispatch = useDispatch();
 
 	const { isAuthenicated, language } = useSelector(selectApp);
+	const isAuthRef = useRef<boolean>(isAuthenicated);
 
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (isAuthenicated) {
+		if (isAuthRef.current) {
 			navigate('/main');
 		}
-	}, [isAuthenicated]);
+	}, [navigate]);
 
 	const onSubmit: SubmitHandler<Input> = (data) => {
 		console.log(data);
 		dispatch(login({ token: 'tmp-token123' }));
 		reset();
 
-    navigate('/main');
+		navigate('/main');
 	};
 
 	return (
 		<>
-			<div>Sign Up Page</div>
+			<h2>Sign Up</h2>
 
-			<form action='' onSubmit={handleSubmit(onSubmit)}>
+			<form action='' onSubmit={handleSubmit(onSubmit)} className='signForm'>
 				<input
 					type='text'
 					placeholder='name'
@@ -77,7 +79,7 @@ export const SignUpPage = () => {
 				<input
 					type='password'
 					placeholder='password'
-					autoComplete=''
+					autoComplete='none'
 					{...register('password', {
 						required: languages.errors.signup.password.required[language],
 						minLength: {

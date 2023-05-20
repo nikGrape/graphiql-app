@@ -25,6 +25,7 @@ export const Headers = ({ display }: { display: boolean }) => {
 						enabled: false,
 					},
 					renderLineHighlight: 'none',
+					useShadowDOM: false,
 				}}
 			/>
 		</div>
