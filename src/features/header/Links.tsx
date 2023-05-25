@@ -11,7 +11,7 @@ export const Links = () => {
 
 	const handleLogOut = () => {
 		(() => {
-			let confirm = window.confirm('Are you shure?');
+			const confirm = window.confirm('Are you shure?');
 			if (confirm) {
 				dispatch(logout());
 				navigate('/welcome');

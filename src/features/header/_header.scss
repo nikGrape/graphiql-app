@@ -9,6 +9,7 @@
 	background-color: rgba(54, 90, 102, 0.082);
 	z-index: 9999;
 	border-radius: 0 0 10px 10px;
+	user-select: none;
 
 	#links {
 		display: flex;

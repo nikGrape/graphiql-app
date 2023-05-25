@@ -8,8 +8,6 @@ export const CodeEditor = () => {
 	const code = `{
   test {
     id: id,
-
-    
   }
 }`;
 	const [value, setValue] = useState(code || '');

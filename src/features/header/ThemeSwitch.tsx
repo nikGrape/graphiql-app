@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
@@ -19,7 +18,16 @@ const ThemeSwitch = () => {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: transparent;
+  }
+
+  button:hover {
+    border: none;
+    background-color: #404f91;
+  }
+
+  #header {
+    background-color: #182734;
   }
 `;
 

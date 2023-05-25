@@ -1,10 +1,19 @@
-import { login, selectApp } from '../app/appSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import languages from '../../assets/languages.json';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
+import { login, selectApp } from '../app/appSlice';
+import languages from '../../assets/languages.json';
 import './_sign.scss';
+import {
+	auth,
+	registerWithEmailAndPassword,
+	signInWithGoogle,
+} from '../../firebase';
 
 interface Input {
 	name: string;
@@ -35,12 +44,22 @@ export const SignUpPage = () => {
 		}
 	}, [navigate]);
 
-	const onSubmit: SubmitHandler<Input> = (data) => {
-		console.log(data);
-		dispatch(login({ token: 'tmp-token123' }));
-		reset();
+	const [user, loading, error] = useAuthState(auth);
 
-		navigate('/main');
+	useEffect(() => {
+		if (loading) return;
+		if (user) {
+			dispatch(login(user));
+			reset();
+			navigate('/main');
+		}
+		if (error) {
+			console.log('SIGN UP!!!!', error);
+		}
+	}, [loading, error, user, dispatch, reset, navigate]);
+
+	const onSubmit: SubmitHandler<Input> = (data) => {
+		registerWithEmailAndPassword(data.name, data.email, data.password);
 	};
 
 	return (
@@ -50,7 +69,7 @@ export const SignUpPage = () => {
 			<form action='' onSubmit={handleSubmit(onSubmit)} className='signForm'>
 				<input
 					type='text'
-					placeholder='name'
+					placeholder='Name'
 					{...register('name', {
 						required: languages.errors.signup.name.required[language],
 						minLength: {
@@ -69,7 +88,8 @@ export const SignUpPage = () => {
 				<br />
 				<input
 					type='email'
-					placeholder='e-mail'
+					placeholder='E-Mail'
+					autoComplete='off'
 					{...register('email', {
 						required: languages.errors.signup.email.required[language],
 					})}
@@ -78,8 +98,8 @@ export const SignUpPage = () => {
 				<br />
 				<input
 					type='password'
-					placeholder='password'
-					autoComplete='none'
+					placeholder='Password'
+					autoComplete='off'
 					{...register('password', {
 						required: languages.errors.signup.password.required[language],
 						minLength: {
@@ -110,11 +130,12 @@ export const SignUpPage = () => {
 				<br />
 				<input
 					type='password'
-					placeholder='password2'
-					autoComplete=''
+					placeholder='Password2'
+					autoComplete='off'
 					{...register('password2', {
 						required: languages.errors.signup.password2.required[language],
 						validate: {
+							//MU5wEafkf@EASpb
 							match: (value: string) =>
 								watch('password') == value
 									? true
@@ -126,7 +147,12 @@ export const SignUpPage = () => {
 					<p className='error'>{errors.password2.message}</p>
 				)}
 				<br />
-				<button type='submit'>submit</button>
+				<button type='submit'>Sign Up</button>
+				<br />
+				<button type='button' id='google-signin' onClick={signInWithGoogle}>
+					{'Sigh In With '}
+					<FontAwesomeIcon icon={faGoogle} />
+				</button>
 			</form>
 		</>
 	);

@@ -1,15 +1,13 @@
 .signForm {
 	min-width: 150px;
 	max-width: 330px;
-	// border: 1px solid rgb(193, 193, 193);
-	padding: 10px;
-	border-radius: 7px;
+	height: auto;
 
 	input {
-		width: 100%;
+		width: 99%;
 		height: 27px;
+		margin-bottom: 5px;
 		font-size: large;
-		margin: 3px;
 		border-radius: 7px;
 		padding-left: 10px;
 		border: 1px dashed gray;
@@ -24,7 +22,7 @@
 	}
 
 	button {
-		margin-top: 25px;
+		margin-top: 20px;
 	}
 
 	p {
@@ -32,4 +30,27 @@
 		display: inline;
 		color: rgb(210, 75, 75);
 	}
+}
+
+.fa-google {
+	color: rgb(224, 2, 2);
+	margin-left: 5px;
+}
+
+#google-signin {
+	margin-top: 15%;
+}
+
+.login-page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+a {
+	margin-top: 10px;
+}
+
+.down-20 {
+	margin-top: 20px;
 }

@@ -5,10 +5,12 @@ import {
 	ThunkDispatch,
 } from '@reduxjs/toolkit';
 import app from './features/app/appSlice';
+import main from './features/main/mainSlice';
 
 const store = configureStore({
 	reducer: {
 		app,
+		main,
 	},
 });
 
