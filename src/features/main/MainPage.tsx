@@ -2,7 +2,6 @@ import { CodeEditor } from './components/Editor';
 import { Headers } from './components/Headers';
 import { Variables } from './components/Variables';
 import { Response } from './components/Response';
-import { History } from './components/History';
 import { AppThunkDispatch } from '../../store';
 
 import './_main.scss';
@@ -11,15 +10,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout, selectApp } from '../app/appSlice';
 import { loader } from '@monaco-editor/react';
 import { fetchResponse } from './mainSlice';
+import { Modal } from './components/Modal';
 
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
-import { selectMain } from './mainSlice';
+import { selectMain, setError } from './mainSlice';
 
 export const MainPage = () => {
 	const { isAuthenicated, theme, tokenExparationTime } = useSelector(selectApp);
-	const { editor, headers, variables, historyIndex } = useSelector(selectMain);
+	const { editor, headers, variables, historyIndex, error } =
+		useSelector(selectMain);
 
 	loader.init().then((monaco) => {
 		monaco.editor.defineTheme('myTheme', {
@@ -112,6 +113,16 @@ export const MainPage = () => {
 				</div>
 			</div>
 			<Response />
+			{error && (
+				<Modal
+					closeHint={() => dispatch(setError(null))}
+					messages={[
+						'Oooops!',
+						"We didn't find anything with your request!",
+						error.toString(),
+					]}
+				/>
+			)}
 		</div>
 	);
 };

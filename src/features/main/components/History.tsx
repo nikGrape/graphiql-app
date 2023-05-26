@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectMain, setHistoryIndex } from '../mainSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
 import './history.scss';
 import { useState } from 'react';
 
@@ -12,9 +12,9 @@ export const History = () => {
 
 	return (
 		<div className={'history-set'}>
-			<div className='history'>
+			<div id='history-clock' className='history' title='show history'>
 				<FontAwesomeIcon
-					icon={faBook}
+					icon={faClockRotateLeft}
 					onClick={() => setShow((show) => !show)}
 				/>
 			</div>

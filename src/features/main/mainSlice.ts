@@ -34,7 +34,7 @@ const initialState: appStateType = {
 		'',
 		`{
     "filmId": 1
-  }`,
+}`,
 	],
 	response: '',
 	historyIndex: 0,
@@ -90,12 +90,11 @@ const main = createSlice({
 		setResponse: (state, action: { payload: { response: string } }): void => {
 			state.response = action.payload.response;
 		},
+		setError: (state, action: { payload: string | null }): void => {
+			state.error = action.payload;
+		},
 		setHistoryIndex: (state, action: { payload: number }): void => {
-			// const max = state.response.length;
-			// const ind = action.payload;
-			// if (ind < max && ind > 0) {
 			state.historyIndex = action.payload;
-			// }
 		},
 	},
 	extraReducers: (builder) => {
@@ -136,5 +135,6 @@ export const selectMain = (state: RootState) => ({
 	error: state.main.error,
 	historyIndex: state.main.historyIndex,
 });
-export const { addEditorHistory, setResponse, setHistoryIndex } = main.actions;
+export const { addEditorHistory, setResponse, setHistoryIndex, setError } =
+	main.actions;
 export default main.reducer;

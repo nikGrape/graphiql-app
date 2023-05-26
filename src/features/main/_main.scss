@@ -230,28 +230,12 @@
 	}
 }
 
-@media only screen and (max-width: 650px) {
-	#main {
-		flex-direction: column;
-		flex-flow: column-reverse;
-		#editor-set {
-			width: 98%;
-			transition: height 500ms ease-in;
-		}
-		#response {
-			padding-top: 9px;
-			width: 98%;
-			justify-self: flex-start;
-		}
-	}
-}
-
 $run-color: rgb(255, 124, 98);
 .run {
 	position: absolute;
 	top: 12px;
 	right: 12px;
-	z-index: 99999999;
+	z-index: 99;
 	color: white;
 	width: 32px;
 	height: 32px;
@@ -299,7 +283,19 @@ span {
 	user-select: none;
 }
 
-.history-point {
-	width: '40px';
-	height: '40px';
+@media only screen and (max-width: 650px) {
+	.main-light,
+	.main-dark {
+		flex-direction: column;
+		flex-flow: column-reverse;
+		#editor-set {
+			width: 98%;
+			transition: height 500ms ease-in;
+		}
+		#response {
+			padding-top: 9px;
+			width: 98%;
+			justify-self: flex-start;
+		}
+	}
 }

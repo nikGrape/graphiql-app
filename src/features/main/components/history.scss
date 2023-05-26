@@ -19,7 +19,7 @@ $run-color: rgb(255, 124, 98);
 	position: absolute;
 	top: 50px;
 	right: 12px;
-	z-index: 99999999;
+	z-index: 99;
 	color: black;
 	width: 32px;
 	height: 32px;
@@ -30,9 +30,13 @@ $run-color: rgb(255, 124, 98);
 	align-items: center;
 	background-color: $run-color;
 	user-select: none;
-	.fa-book {
+	.fa-clock-rotate-left {
 		font-size: x-large;
 		color: white;
+	}
+	.fa-clock-rotate-left:hover {
+		transition: all 700ms ease-out;
+		transform: rotate(-360deg);
 	}
 }
 
