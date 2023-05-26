@@ -1,10 +1,12 @@
 import Editor from '@monaco-editor/react';
 
-import { useState } from 'react';
+type VariablesParams = {
+	display: boolean;
+	value: string;
+	setValue: React.Dispatch<React.SetStateAction<string>>;
+};
 
-export const Variables = ({ display }: { display: boolean }) => {
-	const [value, setValue] = useState('');
-
+export const Variables = ({ display, value, setValue }: VariablesParams) => {
 	const handleEditorChange = (value: string | undefined) => {
 		setValue(value || '');
 	};

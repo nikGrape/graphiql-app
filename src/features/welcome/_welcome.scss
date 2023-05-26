@@ -1,5 +1,17 @@
+$sign-color: white;
+
 #welcome {
 	width: 400px;
+}
+
+.dark-sign {
+	fill: rgb(205, 205, 205);
+	stroke: rgb(205, 205, 205);
+}
+
+.light-sign {
+	fill: black;
+	stroke: black;
 }
 
 .welcome-page {
@@ -15,14 +27,12 @@
 }
 
 .st0 {
-	stroke: black;
 	stroke-width: 2;
 	stroke-miterlimit: 10;
 }
 
 .svg-sing {
 	stroke-width: 8px;
-	stroke: black;
 	fill: none;
 }
 

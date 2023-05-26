@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import './_welcome.scss';
 import { selectApp } from '../app/appSlice';
 export const Welcome = () => {
-	const { language } = useSelector(selectApp);
+	const { language, theme } = useSelector(selectApp);
 
 	return (
 		<div className='full-screen welcome-page'>
@@ -10,7 +10,7 @@ export const Welcome = () => {
 			<svg version='1.1' id='sign' x='0px' y='0px' viewBox='0 0 1366 768'>
 				<path
 					id='graphi'
-					className='svg-sing'
+					className={`svg-sing ${theme == 'dark' ? 'dark-sign' : 'light-sign'}`}
 					d='M373.8,226c7.2-9.8,3.5-23.5-4.3-31.7c-9.8-10.3-25.2-12.5-38.6-14.4c-16.2-2.2-32.8-4.1-49.1-1.1
     c-14.2,2.6-26.9,9.4-37.6,19c-10.6,9.5-19.1,21.1-26.6,33.2c-8.6,13.9-16.4,28.2-23.4,43c-13.6,29-23.7,60.3-25.1,92.5
     c-1.1,23.3,1.1,51.4,18.8,68.8c10,9.8,24,14.1,37.8,13.8c24.6-0.5,46.8-15.1,64.1-31.6c16.9-16.2,29.8-35.1,38.9-56.7
@@ -79,7 +79,7 @@ export const Welcome = () => {
 				/>
 				<path
 					id='Q'
-					className='svg-sing'
+					className={`svg-sing ${theme == 'dark' ? 'dark-sign' : 'light-sign'}`}
 					d='M1003.7,236.3c-16.5-7.5-36.7-5.6-51.5,5.1c-14.5,10.5-22.3,27.3-29,43.4c-4.1,9.9-7.9,20-11.4,30.1
     c-3.5,10.2-7,20.5-9.6,31c-5.2,20.3-7.3,41.4-1.7,61.8c3.3,12,9.4,24,19.9,31.3c11.3,7.9,26.2,7.4,38.2,1.2
     c17.1-8.8,25.7-27.4,32.8-44.3c8.2-19.6,15.3-39.7,20.6-60.2c5.3-20.4,8.9-41.4,10.2-62.5c0.6-10.3,1.1-21-0.8-31.3
@@ -93,21 +93,27 @@ export const Welcome = () => {
 				/>
 				<path
 					id='qs'
-					className='svg-sing'
+					className={`svg-sing ${theme == 'dark' ? 'dark-sign' : 'light-sign'}`}
 					d='M963.1,380c8.4,17.3,14.9,35.6,19.4,54.3c1.3,5.3,2.4,10.7,3.3,16.1c0.3,1.9,3.2,1.1,2.9-0.8
     c-3.4-19.2-8.8-37.9-16.3-55.9c-2.1-5.1-4.4-10.2-6.8-15.2C964.8,376.8,962.2,378.3,963.1,380L963.1,380z'
 				/>
 
 				<path
 					id='L'
-					className='svg-sing'
+					className={`svg-sing ${theme == 'dark' ? 'dark-sign' : 'light-sign'}`}
 					d='M1106.4,230.1c-10,27.9-20,55.9-29.8,83.9c-9.8,27.9-19.6,55.7-29.1,83.7c-5.3,15.5-10.4,31.1-14.8,46.8
     c-0.3,1.1,0.8,2.1,1.8,1.8c30.2-7.4,61-12.2,92-14.4c8.7-0.6,17.4-1,26.2-1.2c1.9,0,1.9-3,0-3c-31.2,0.7-62.3,4.1-92.9,10.1
     c-8.7,1.7-17.4,3.6-26.1,5.7c0.6,0.6,1.2,1.2,1.8,1.8c8-28.2,17.9-55.7,27.5-83.4c9.8-28,19.5-56.1,29.5-84.1
     c5.6-15.7,11.2-31.3,16.8-46.9C1109.9,229.1,1107,228.3,1106.4,230.1L1106.4,230.1z'
 				/>
 
-				<circle id='i-dot' className='st0' cx='830.1' cy='278.1' r='10.8' />
+				<circle
+					id='i-dot'
+					className={`st-0 ${theme == 'dark' ? 'dark-sign' : 'light-sign'}`}
+					cx='830.1'
+					cy='278.1'
+					r='10.8'
+				/>
 			</svg>
 		</div>
 	);

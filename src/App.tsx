@@ -1,6 +1,7 @@
 import './App.css';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import store from './store';
 
 import { Welcome } from './features/welcome/Welcome';
@@ -13,9 +14,14 @@ import { Footer } from './features/footer/Footer';
 import { Header } from './features/header/Header';
 import { AboutPage } from './features/about/AboutPage';
 
+const client = new ApolloClient({
+	uri: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
+	cache: new InMemoryCache(),
+});
+
 function App() {
 	return (
-		<>
+		<ApolloProvider client={client}>
 			<Provider store={store}>
 				<HashRouter>
 					<Header />
@@ -31,7 +37,7 @@ function App() {
 				</HashRouter>
 				<Footer />
 			</Provider>
-		</>
+		</ApolloProvider>
 	);
 }
 

@@ -12,6 +12,7 @@
 	display: flex;
 	justify-content: left;
 	align-items: center;
+	position: relative;
 
 	#editor-set {
 		position: relative;
@@ -266,8 +267,7 @@ $run-color: rgb(255, 124, 98);
 .run:hover {
 	box-shadow: 2px 2px 5px rgb(164, 164, 164);
 	transform: scale(1.01);
-
-	svg {
+	.fa-play {
 		animation: pass 500ms ease-in-out 1;
 	}
 
@@ -297,4 +297,9 @@ $run-color: rgb(255, 124, 98);
 
 span {
 	user-select: none;
+}
+
+.history-point {
+	width: '40px';
+	height: '40px';
 }

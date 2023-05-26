@@ -1,10 +1,12 @@
 import Editor from '@monaco-editor/react';
 
-import { useState } from 'react';
+type HeadersParams = {
+	display: boolean;
+	value: string;
+	setValue: React.Dispatch<React.SetStateAction<string>>;
+};
 
-export const Headers = ({ display }: { display: boolean }) => {
-	const [value, setValue] = useState('');
-
+export const Headers = ({ display, value, setValue }: HeadersParams) => {
 	const handleEditorChange = (value: string | undefined) => {
 		setValue(value || '');
 	};

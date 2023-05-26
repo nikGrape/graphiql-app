@@ -2,22 +2,62 @@ import { CodeEditor } from './components/Editor';
 import { Headers } from './components/Headers';
 import { Variables } from './components/Variables';
 import { Response } from './components/Response';
+import { History } from './components/History';
+import { AppThunkDispatch } from '../../store';
 
 import './_main.scss';
 import { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout, selectApp } from '../app/appSlice';
+import { loader } from '@monaco-editor/react';
+import { fetchResponse } from './mainSlice';
+
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { selectMain } from './mainSlice';
 
 export const MainPage = () => {
-	const [tab, setTab] = useState<'headers' | 'variables'>('headers');
-	const [openTabs, setOpenTabs] = useState<boolean>(true);
 	const { isAuthenicated, theme, tokenExparationTime } = useSelector(selectApp);
+	const { editor, headers, variables, historyIndex } = useSelector(selectMain);
+
+	loader.init().then((monaco) => {
+		monaco.editor.defineTheme('myTheme', {
+			base: theme == 'dark' ? 'vs-dark' : 'vs',
+			inherit: true,
+			rules: [],
+			colors: {
+				'editor.background': '#ffffff00',
+			},
+		});
+	});
+
+	const dispatch = useDispatch<AppThunkDispatch>();
+
+	const [tab, setTab] = useState<'headers' | 'variables'>('variables');
+	const [openTabs, setOpenTabs] = useState<boolean>(true);
+	const [editorValue, setEditorValue] = useState(editor[historyIndex]);
+	const [headersValue, setHeadersValue] = useState(headers[historyIndex]);
+	const [variablesValue, setVariablesValue] = useState(variables[historyIndex]);
+
+	useEffect(() => {
+		setEditorValue(editor[historyIndex]);
+		setVariablesValue(variables[historyIndex]);
+		setHeadersValue(headers[historyIndex]);
+	}, [historyIndex, editor, headers, variables]);
+
+	const run = () => {
+		dispatch(
+			fetchResponse({
+				editor: editorValue,
+				headers: headersValue,
+				variables: variablesValue,
+			})
+		);
+	};
+
 	const isAuthRef = useRef<boolean>(isAuthenicated);
 	const navigate = useNavigate();
-	const dispatch = useDispatch();
 
 	useEffect(() => {
 		if (!isAuthRef.current) navigate('/login');
@@ -33,7 +73,7 @@ export const MainPage = () => {
 	return (
 		<div className={theme == 'dark' ? 'main-dark' : 'main-light'}>
 			<div id={openTabs ? 'editor-set' : 'editor-set-mini'}>
-				<CodeEditor />
+				<CodeEditor value={editorValue} setValue={setEditorValue} run={run} />
 				<div id='headers-variables'>
 					<div id='tabs'>
 						<span
@@ -59,8 +99,16 @@ export const MainPage = () => {
 							)}
 						</span>
 					</div>
-					<Headers display={tab == 'headers'} />
-					<Variables display={tab == 'variables'} />
+					<Headers
+						display={tab == 'headers'}
+						value={headersValue}
+						setValue={setHeadersValue}
+					/>
+					<Variables
+						display={tab == 'variables'}
+						value={variablesValue}
+						setValue={setVariablesValue}
+					/>
 				</div>
 			</div>
 			<Response />
