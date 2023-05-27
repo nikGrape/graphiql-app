@@ -24,6 +24,7 @@
 		height: 98%;
 		margin: 9px;
 		transition: width 300ms ease-in;
+		resize: horizontal;
 
 		#editor {
 			background-color: $editor; //here
@@ -33,6 +34,7 @@
 			margin-bottom: 2px;
 			padding-top: 12px;
 			position: relative;
+			resize: horizontal;
 		}
 
 		#headers-variables {

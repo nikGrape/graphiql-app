@@ -13,6 +13,7 @@ import { ResetPassword } from './features/login/ResetPassword';
 import { Footer } from './features/footer/Footer';
 import { Header } from './features/header/Header';
 import { AboutPage } from './features/about/AboutPage';
+import { Documentation } from './features/main/components/Documentation';
 
 const client = new ApolloClient({
 	uri: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
@@ -32,6 +33,7 @@ function App() {
 						<Route path='/signup' element={<SignUpPage />} />
 						<Route path='/reset' element={<ResetPassword />} />
 						<Route path='/about' element={<AboutPage />} />
+						<Route path='/docs' element={<Documentation />} />
 						<Route path='*' element={<PageNotFound />} />
 					</Routes>
 				</HashRouter>
