@@ -9,7 +9,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout, selectApp } from '../app/appSlice';
 import { loader } from '@monaco-editor/react';
-import { fetchResponse } from './mainSlice';
+import { fetchResponse, setHistoryIndex } from './mainSlice';
 import { Modal } from './components/Modal';
 
 import { useNavigate } from 'react-router-dom';
@@ -54,6 +54,7 @@ export const MainPage = () => {
 				variables: variablesValue,
 			})
 		);
+		dispatch(setHistoryIndex(editor.length));
 	};
 
 	const isAuthRef = useRef<boolean>(isAuthenicated);
