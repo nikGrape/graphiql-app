@@ -65,7 +65,7 @@ export const MainPage = () => {
 
 	useEffect(() => {
 		if (tokenExparationTime - new Date().getTime() <= 0) {
-			dispatch(logout);
+			dispatch(logout());
 			navigate('/welcome');
 		}
 	});
