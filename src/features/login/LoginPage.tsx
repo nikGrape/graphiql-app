@@ -33,13 +33,12 @@ export const LoginPage = () => {
 
 	const { isAuthenicated } = useSelector(selectApp);
 	const navigate = useNavigate();
-	const isAuthRef = useRef<boolean>(isAuthenicated);
 
 	useEffect(() => {
-		if (isAuthRef.current) {
+		if (isAuthenicated) {
 			navigate('/main');
 		}
-	}, [navigate]);
+	}, [navigate, isAuthenicated]);
 
 	const [user, loading, error] = useAuthState(auth);
 
