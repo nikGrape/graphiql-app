@@ -135,7 +135,6 @@ export const SignUpPage = () => {
 					{...register('password2', {
 						required: languages.errors.signup.password2.required[language],
 						validate: {
-							//MU5wEafkf@EASpb
 							match: (value: string) =>
 								watch('password') == value
 									? true

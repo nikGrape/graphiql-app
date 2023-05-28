@@ -2,8 +2,14 @@ $sign-color: white;
 
 #welcome {
 	width: 400px;
+	a {
+		width: 35%;
+	}
 }
 
+#sign {
+	width: 100%;
+}
 .dark-sign {
 	fill: rgb(205, 205, 205);
 	stroke: rgb(205, 205, 205);
@@ -20,13 +26,6 @@ $sign-color: white;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-}
-
-a {
-	width: 35%;
-}
-#sign {
-	width: 100%;
 }
 
 .st0 {
