@@ -20,8 +20,8 @@
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
-		width: 49%;
 		height: 98%;
+		width: 35%;
 		margin: 9px;
 		transition: width 300ms ease-in;
 		resize: horizontal;
@@ -51,7 +51,7 @@
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
-		width: 49%;
+		width: 35%;
 		height: 98%;
 		margin: 9px;
 		transition: width 300ms ease-in;
@@ -109,8 +109,9 @@
 	}
 
 	#response {
-		width: 48%;
 		height: 94%;
+		min-width: 40%;
+		width: 63%;
 		border-radius: 20px;
 		background-color: inherit;
 	}
@@ -137,7 +138,7 @@
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
-		width: 49%;
+		width: 35%;
 		height: 98%;
 		margin: 9px;
 		transition: width 300ms ease-in;
@@ -166,7 +167,7 @@
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
-		width: 49%;
+		width: 35%;
 		height: 98%;
 		margin: 9px;
 		transition: width 300ms ease-in;
@@ -225,7 +226,8 @@
 	}
 
 	#response {
-		width: 48%;
+		min-width: 40%;
+		width: 63%;
 		height: 94%;
 		border-radius: 20px;
 		background-color: inherit;
@@ -236,6 +238,23 @@ $run-color: rgb(255, 124, 98);
 .run {
 	position: absolute;
 	top: 12px;
+	right: 12px;
+	z-index: 99;
+	color: white;
+	width: 32px;
+	height: 32px;
+	font-size: x-large;
+	border-radius: 5px;
+	border: 2px solid $run-color;
+	display: grid;
+	justify-items: center;
+	align-items: center;
+	background-color: $run-color;
+}
+
+.docs-btn {
+	position: absolute;
+	top: 50px;
 	right: 12px;
 	z-index: 99;
 	color: white;

@@ -13,7 +13,7 @@ export const PageNotFound = () => {
 		return () => {
 			dispatch(setShowHeader(true));
 		};
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<div>

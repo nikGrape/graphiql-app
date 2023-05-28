@@ -1,6 +1,11 @@
 import Editor from '@monaco-editor/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import {
+	faBook,
+	faBookOpen,
+	faPlay,
+	faSpinner,
+} from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { selectMain } from '../mainSlice';
 import { History } from './History';
@@ -8,10 +13,18 @@ import { History } from './History';
 type CodeEditorParams = {
 	value: string;
 	setValue: React.Dispatch<React.SetStateAction<string>>;
+	showDocs: boolean;
+	setShowDocs: React.Dispatch<React.SetStateAction<boolean>>;
 	run: () => void;
 };
 
-export const CodeEditor = ({ value, setValue, run }: CodeEditorParams) => {
+export const CodeEditor = ({
+	value,
+	setValue,
+	run,
+	showDocs,
+	setShowDocs,
+}: CodeEditorParams) => {
 	const { status } = useSelector(selectMain);
 
 	const handleEditorChange = (value: string | undefined) => {
@@ -24,6 +37,12 @@ export const CodeEditor = ({ value, setValue, run }: CodeEditorParams) => {
 				<FontAwesomeIcon
 					icon={status == 'pending' ? faSpinner : faPlay}
 					spin={status == 'pending'}
+				/>
+			</div>
+			<div className='docs-btn' role='button'>
+				<FontAwesomeIcon
+					icon={showDocs ? faBookOpen : faBook}
+					onClick={() => setShowDocs((v) => !v)}
 				/>
 			</div>
 			<History />

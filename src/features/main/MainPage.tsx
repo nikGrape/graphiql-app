@@ -13,9 +13,8 @@ import { fetchResponse } from './mainSlice';
 import { Modal } from './components/Modal';
 
 import { useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { selectMain, setError } from './mainSlice';
+import { Documentation } from '../documentation/Documentation';
 
 export const MainPage = () => {
 	const { isAuthenicated, theme, tokenExparationTime } = useSelector(selectApp);
@@ -36,10 +35,10 @@ export const MainPage = () => {
 	const dispatch = useDispatch<AppThunkDispatch>();
 
 	const [tab, setTab] = useState<'headers' | 'variables'>('variables');
-	const [openTabs, setOpenTabs] = useState<boolean>(true);
 	const [editorValue, setEditorValue] = useState(editor[historyIndex]);
 	const [headersValue, setHeadersValue] = useState(headers[historyIndex]);
 	const [variablesValue, setVariablesValue] = useState(variables[historyIndex]);
+	const [showDocs, setShowDocs] = useState(false);
 
 	useEffect(() => {
 		setEditorValue(editor[historyIndex]);
@@ -72,9 +71,16 @@ export const MainPage = () => {
 	});
 
 	return (
-		<div className={theme == 'dark' ? 'main-dark' : 'main-light'}>
-			<div id={openTabs ? 'editor-set' : 'editor-set-mini'}>
-				<CodeEditor value={editorValue} setValue={setEditorValue} run={run} />
+		<div className={`${theme == 'dark' ? 'main-dark' : 'main-light'}`}>
+			{showDocs && <Documentation />}
+			<div id={'editor-set'}>
+				<CodeEditor
+					value={editorValue}
+					setValue={setEditorValue}
+					run={run}
+					showDocs={showDocs}
+					setShowDocs={setShowDocs}
+				/>
 				<div id='headers-variables'>
 					<div id='tabs'>
 						<span
@@ -88,16 +94,6 @@ export const MainPage = () => {
 							className={tab == 'variables' ? 'active-tab' : ''}
 						>
 							Variables
-						</span>
-						<span
-							id='open-tabs'
-							onClick={() => setOpenTabs((openTabs) => !openTabs)}
-						>
-							{openTabs ? (
-								<FontAwesomeIcon icon={faAngleDown} />
-							) : (
-								<FontAwesomeIcon icon={faAngleUp} />
-							)}
 						</span>
 					</div>
 					<Headers

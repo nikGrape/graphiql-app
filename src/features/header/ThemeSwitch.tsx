@@ -18,7 +18,8 @@ const ThemeSwitch = () => {
     color: #747bff;
   }
   button {
-    background-color: transparent;
+    background-color: #747bff;
+    color: #ffffff;
   }
 
   button:hover {
