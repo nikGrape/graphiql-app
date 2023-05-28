@@ -65,11 +65,12 @@ export const MainPage = () => {
 	}, [navigate]);
 
 	useEffect(() => {
+		if (tokenExparationTime == 0) return;
 		if (tokenExparationTime - new Date().getTime() <= 0) {
 			dispatch(logout());
 			navigate('/welcome');
 		}
-	});
+	}, [tokenExparationTime, dispatch, navigate]);
 
 	return (
 		<div className={`${theme == 'dark' ? 'main-dark' : 'main-light'}`}>
