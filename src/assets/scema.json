@@ -1,0 +1,76 @@
+{
+	"Root": {
+		"Film": {
+			"created": "String",
+			"director": "String",
+			"edited": "String",
+			"episodeID": "Int",
+			"id": "ID!",
+			"openingCrawl": "String",
+			"producers": "[String]",
+			"releaseDate": "String",
+			"title": "String"
+		},
+		"Person": {
+			"birthYear": "String",
+			"created": "String",
+			"edited": "String",
+			"eyeColor": "String",
+			"gender": "String",
+			"hairColor": "String",
+			"height": "Int",
+			"homeworld": "Planet",
+			"id": "ID!",
+			"mass": "Float",
+			"name": "String",
+			"skinColor": "String",
+			"species": "Species"
+		},
+		"Planet": {
+			"climates": "[String]",
+			"created": "String",
+			"diameter": "Int",
+			"edited": "String",
+			"gravity": "String",
+			"id": "ID!",
+			"name": "String",
+			"orbitalPeriod": "Int",
+			"population": "Float",
+			"rotationPeriod": "Int",
+			"surfaceWater": "Float",
+			"terrains": "[String]"
+		},
+		"Species": {
+			"averageHeight": "Float",
+			"averageLifespan": "Int",
+			"classification": "String",
+			"created": "String",
+			"designation": "String",
+			"edited": "String",
+			"eyeColors": "[String]",
+			"hairColors": "[String]",
+			"homeworld": "Planet",
+			"id": "ID!",
+			"language": "String",
+			"name": "String",
+			"skinColors": "[String]"
+		},
+		"Starship": {
+			"MGLT": "Int",
+			"cargoCapacity": "Float",
+			"consumables": "String",
+			"costInCredits": "Float",
+			"created": "String",
+			"crew": "String",
+			"edited": "String",
+			"id": "ID!",
+			"length": "Float",
+			"manufacturers": "[String]",
+			"maxAtmospheringSpeed": "Int",
+			"model": "String",
+			"name": "String",
+			"passengers": "String",
+			"starshipClass": "String"
+		}
+	}
+}

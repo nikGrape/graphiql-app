@@ -1,0 +1,27 @@
+.docs {
+	overflow: scroll;
+	color: rgb(163, 65, 0);
+	user-select: none;
+	height: 98%;
+	width: 25%;
+	width: 100%;
+	z-index: 99;
+	transition: all 200ms ease-in;
+}
+
+li:hover {
+	color: rgb(196, 79, 0);
+	font-weight: 600;
+}
+
+.fields {
+	color: rgb(202, 132, 48);
+}
+.fields:hover {
+	color: rgb(200, 138, 63);
+	border: 1px solid black;
+}
+
+.fa-book {
+	font-size: x-large;
+}
