@@ -1,0 +1,322 @@
+.main-light {
+	$main: #efefef;
+	$editor: white;
+	$active-tab: white;
+	$tab-hover: #f8f8f8;
+	$tab-text: black;
+
+	width: 90vw;
+	height: 82vh;
+	background-color: $main;
+	border-radius: 10px;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	position: relative;
+
+	#editor-set {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		height: 98%;
+		width: 35%;
+		margin: 9px;
+		transition: width 300ms ease-in;
+		resize: horizontal;
+
+		#editor {
+			background-color: $editor; //here
+			width: 100%;
+			height: 69%;
+			border-radius: 10px 10px 0 0;
+			margin-bottom: 2px;
+			padding-top: 12px;
+			position: relative;
+			resize: horizontal;
+		}
+
+		#headers-variables {
+			width: 100%;
+			height: 30.5%;
+			background-color: $editor;
+			border-radius: 0 0 10px 10px;
+		}
+	}
+
+	#editor-set-mini {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		width: 35%;
+		height: 98%;
+		margin: 9px;
+		transition: width 300ms ease-in;
+		overflow: hidden;
+
+		#editor {
+			background-color: $editor; //here
+			width: 100%;
+			height: 90%;
+			border-radius: 10px 10px 0 0;
+			margin-bottom: 2px;
+			padding-top: 12px;
+			position: relative;
+		}
+
+		#headers-variables {
+			width: 100%;
+			height: 10%;
+			background-color: $editor;
+			border-radius: 0 0 10px 10px;
+		}
+	}
+
+	#tabs {
+		width: 100%;
+		height: 20px;
+		// border: 1px solid black;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		background-color: $main;
+
+		span {
+			height: 100%;
+			min-width: auto;
+			width: 25%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 0 7px 0 0;
+			color: $tab-text;
+			// transition: all 150ms ease-out;
+		}
+
+		span:hover {
+			color: $tab-text;
+			transform: translateY(1px);
+			background-color: $tab-hover;
+		}
+
+		.active-tab {
+			background-color: $active-tab;
+			font-weight: 600;
+		}
+	}
+
+	#response {
+		height: 94%;
+		min-width: 40%;
+		width: 63%;
+		border-radius: 20px;
+		background-color: inherit;
+	}
+}
+
+.main-dark {
+	$editor: #213547;
+	$main: #182734;
+	$active-tab: #213547;
+	$tab-hover: #1b2d3d;
+	$tab-text: #a5d5ff;
+
+	width: 90vw;
+	height: 82vh;
+	background-color: $main;
+	border-radius: 10px;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+
+	#editor-set {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		width: 35%;
+		height: 98%;
+		margin: 9px;
+		transition: width 300ms ease-in;
+
+		#editor {
+			background-color: $editor; //here
+			width: 100%;
+			height: 69%;
+			border-radius: 10px 10px 0 0;
+			margin-bottom: 2px;
+			padding-top: 12px;
+			position: relative;
+		}
+
+		#headers-variables {
+			width: 100%;
+			height: 30.5%;
+			background-color: $editor;
+			border-radius: 0 0 10px 10px;
+		}
+	}
+
+	#editor-set-mini {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		width: 35%;
+		height: 98%;
+		margin: 9px;
+		transition: width 300ms ease-in;
+		overflow: hidden;
+
+		#editor {
+			background-color: $editor; //here
+			width: 100%;
+			height: 91%;
+			border-radius: 10px 10px 0 0;
+			margin-bottom: 2px;
+			padding-top: 12px;
+			position: relative;
+		}
+
+		#headers-variables {
+			width: 100%;
+			height: 10%;
+			background-color: $editor;
+			border-radius: 0 0 10px 10px;
+		}
+	}
+
+	#tabs {
+		width: 100%;
+		height: 20px;
+		// border: 1px solid black;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		background-color: $main;
+		overflow: hidden;
+
+		span {
+			height: 100%;
+			min-width: auto;
+			width: 25%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 0 7px 0 0;
+			color: $tab-text;
+			// transition: all 150ms ease-out;
+		}
+
+		span:hover {
+			color: $tab-text;
+			transform: translateY(1px);
+			background-color: $tab-hover;
+		}
+
+		.active-tab {
+			background-color: $active-tab;
+			font-weight: 600;
+		}
+	}
+
+	#response {
+		min-width: 40%;
+		width: 63%;
+		height: 94%;
+		border-radius: 20px;
+		background-color: inherit;
+	}
+}
+
+$run-color: rgb(255, 124, 98);
+.run {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	z-index: 99;
+	color: white;
+	width: 32px;
+	height: 32px;
+	font-size: x-large;
+	border-radius: 5px;
+	border: 2px solid $run-color;
+	display: grid;
+	justify-items: center;
+	align-items: center;
+	background-color: $run-color;
+}
+
+.docs-btn {
+	position: absolute;
+	top: 50px;
+	right: 12px;
+	z-index: 99;
+	color: white;
+	width: 32px;
+	height: 32px;
+	font-size: x-large;
+	border-radius: 5px;
+	border: 2px solid $run-color;
+	display: grid;
+	justify-items: center;
+	align-items: center;
+	background-color: $run-color;
+}
+
+.run:hover {
+	box-shadow: 2px 2px 5px rgb(164, 164, 164);
+	transform: scale(1.01);
+	.fa-play {
+		animation: pass 500ms ease-in-out 1;
+	}
+
+	@keyframes pass {
+		0% {
+			transform: translateX(0px);
+			opacity: 1;
+			color: rgb(173, 130, 130);
+		}
+		50% {
+			transform: translateX(20px) scaleX(1.5);
+			opacity: 0;
+			color: rgb(173, 130, 130);
+		}
+		51% {
+			transform: translateX(-20px) scaleX(1.5);
+			opacity: 0;
+			color: white;
+		}
+		100% {
+			transform: translateX(0px) scaleX(1);
+			opacity: 1;
+			color: white;
+		}
+	}
+}
+
+span {
+	user-select: none;
+}
+
+@media only screen and (max-width: 650px) {
+	.main-light,
+	.main-dark {
+		flex-direction: column;
+		flex-flow: column-reverse;
+		#editor-set {
+			width: 98%;
+			transition: height 500ms ease-in;
+		}
+		#response {
+			padding-top: 9px;
+			width: 98%;
+			justify-self: flex-start;
+		}
+	}
+}

@@ -1,0 +1,41 @@
+.lang {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	width: auto;
+	label {
+		margin-right: 3px;
+		margin-left: 5px;
+	}
+
+	input[type='radio'],
+	input[type='checkbox'] {
+		appearance: none;
+		background-color: inherit;
+		width: 25px;
+		height: 25px;
+		border: 1px dashed gray;
+		border-radius: 25%;
+		margin-right: 10px;
+		display: grid;
+		place-content: center;
+	}
+
+	input[type='radio']::before,
+	input[type='checkbox']::before {
+		content: '';
+		width: 19px;
+		height: 19px;
+		border-radius: 25%;
+		transform: scale(0);
+		transition: 250ms all ease-in-out;
+		background-color: rgb(9, 80, 231);
+		z-index: 555;
+	}
+
+	input[type='radio']:checked::before,
+	input[type='checkbox']:checked::before {
+		transform: scale(1);
+	}
+}

@@ -1,0 +1,68 @@
+{
+	"errors": {
+		"signup": {
+			"name": {
+				"required": {
+					"ru": "Введите имя",
+					"en": "Name is required"
+				},
+				"length": {
+					"ru": "Не менее 2 символов",
+					"en": "Minimum length is 2 letters"
+				},
+				"capital": {
+					"ru": "Имя должно начинаться с заглавной буквы",
+					"en": "Name should start with a capital letter"
+				}
+			},
+			"email": {
+				"required": {
+					"ru": "Введите E-mail",
+					"en": "E-mail is required"
+				}
+			},
+			"password": {
+				"required": {
+					"ru": "Введите пароль",
+					"en": "Password is Required"
+				},
+				"length": {
+					"ru": "Минимальная длинна 8 символов",
+					"en": "Minimum length is 8"
+				},
+				"capital": {
+					"ru": "Должет иметь хотя бы 1 заглавную букву",
+					"en": "Should have at least one capital letter"
+				},
+				"simbol": {
+					"ru": "Должен содержать хотя бы один из символов !@#$%^&*()",
+					"en": "Should contain at least one of the simbols !@#$%^&*()"
+				},
+				"number": {
+					"ru": "Должен содержать хотя бы одину цифру",
+					"en": "Should contain at least one number"
+				},
+				"letter": {
+					"ru": "Должен содержать хотя бы одину букву",
+					"en": "Should contain at least one small letter"
+				}
+			},
+			"password2": {
+				"required": {
+					"ru": "Введите подтверждение пароля",
+					"en": "Confirm password"
+				},
+				"match": {
+					"ru": "Пароли не совпадают",
+					"en": "Passwords do not match"
+				}
+			}
+		}
+	},
+	"footer": {
+		"created": {
+			"ru": "Создано в 2023г",
+			"en": "Created in 2023"
+		}
+	}
+}

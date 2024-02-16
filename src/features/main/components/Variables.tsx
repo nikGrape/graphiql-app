@@ -1,0 +1,33 @@
+import Editor from '@monaco-editor/react';
+
+type VariablesParams = {
+	display: boolean;
+	value: string;
+	setValue: React.Dispatch<React.SetStateAction<string>>;
+};
+
+export const Variables = ({ display, value, setValue }: VariablesParams) => {
+	const handleEditorChange = (value: string | undefined) => {
+		setValue(value || '');
+	};
+
+	return (
+		<div id='editor' style={{ display: display ? 'block' : 'none' }}>
+			<Editor
+				height='95%'
+				width='100%'
+				className='edit'
+				language={'graphql'}
+				value={value}
+				theme='light'
+				onChange={handleEditorChange}
+				options={{
+					minimap: {
+						enabled: false,
+					},
+					renderLineHighlight: 'none',
+				}}
+			/>
+		</div>
+	);
+};
